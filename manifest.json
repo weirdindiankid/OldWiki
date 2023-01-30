@@ -5,6 +5,10 @@
   "version": "1.0",
 
   "description": "Forces Wikipedia on desktop to use the old vector skin.",
+  "icons": {
+      "48": "icons/oldwiki-48.png",
+      "96": "icons/oldwiki-96.png"
+  },
   "content_scripts": [
     {
       "matches": ["*://*.wikipedia.org/*"],
