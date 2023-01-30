@@ -1,0 +1,16 @@
+{
+
+  "manifest_version": 2,
+  "name": "OldWiki",
+  "version": "1.0",
+
+  "description": "Forces Wikipedia on desktop to use the old vector skin.",
+  "content_scripts": [
+    {
+      "matches": ["*://*.wikipedia.org/*"],
+      "js": ["oldwiki.js"]
+    }
+  ]
+
+}
+
