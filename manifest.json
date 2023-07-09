@@ -1,20 +1,45 @@
 {
 
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "OldWiki",
-  "version": "1.1",
+  "version": "1.2",
 
   "description": "Forces Wikipedia on desktop to use the old vector skin.",
   "icons": {
       "48": "icons/oldwiki-48.png",
       "96": "icons/oldwiki-96.png"
   },
-  "content_scripts": [
+  "declarative_net_request" : {
+    "rule_resources" : [{
+      "id": "apply_vector_skin",
+      "enabled": true,
+      "path": "rules/apply.json"
+    },
     {
-      "matches": ["*://*.wikipedia.org/*"],
-      "js": ["oldwiki.js"]
-    }
+      "id": "remove_vector_skin",
+      "enabled": false,
+      "path": "rules/remove.json"
+    }]
+  },
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "*://*.wikipedia.org/*",
+    "*://*.wiktionary.org/*",
+    "*://*.wikiquote.org/*",
+    "*://*.wikibooks.org/*",
+    "*://*.wikisource.org/*",
+    "*://species.wikimedia.org/*",
+    "*://*.wikinews.org/*",
+    "*://*.wikiversity.org/*",
+    "*://*.wikivoyage.org/*",
+    "*://commons.wikimedia.org/*",
+    "*://*.wikidata.org/*",
+    "*://*.mediawiki.org/*",
+    "*://meta.wikimedia.org/*",
+    "*://incubator.wikimedia.org/*",
+    "*://wikitech.wikimedia.org/*"
   ]
-
 }
 
