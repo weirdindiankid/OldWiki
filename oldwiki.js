@@ -1,11 +1,18 @@
-// Check if the current page is a Wikipedia page and doesn't already use Vector skin
-if (window.location.hostname.includes('wikipedia.org') && !window.location.href.includes('useskin=vector')) {
-    // Check if there are already query parameters in the URL
-    if (window.location.href.includes('?')) {
-        // Append the vector skin parameter with an ampersand
-        window.location.replace(document.URL + '&useskin=vector');
-    } else {
-        // Add the vector skin parameter with a question mark
-        window.location.replace(document.URL + '?useskin=vector');
+// Only run on Wikipedia sites
+if (window.location.hostname.includes('wikipedia.org')) {
+  // Don't run on pages that should be left alone (special pages, etc.)
+  const excludedPaths = ['/wiki/Special:', '/w/'];
+  const shouldSkip = excludedPaths.some(path => window.location.pathname.includes(path));
+
+  if (!shouldSkip) {
+    // Check if useskin=vector is already in the URL
+    const url = new URL(window.location.href);
+    if (!url.searchParams.has('useskin')) {
+      // Add the parameter properly using URLSearchParams
+      url.searchParams.set('useskin', 'vector');
+
+      // Preserve hash fragments
+      window.location.replace(url.toString());
     }
+  }
 }
