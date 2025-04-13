@@ -1,9 +1,7 @@
 {
-
   "manifest_version": 2,
   "name": "OldWiki",
-  "version": "1.1",
-
+  "version": "1.2",  // Incrementing from 1.1 to 1.2
   "description": "Forces Wikipedia on desktop to use the old vector skin.",
   "icons": {
       "48": "icons/oldwiki-48.png",
@@ -15,6 +13,4 @@
       "js": ["oldwiki.js"]
     }
   ]
-
 }
-
